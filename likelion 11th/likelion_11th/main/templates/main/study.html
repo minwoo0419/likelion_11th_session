@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h1>장고 사용</h1>
+<div class="word">
+    <ul>
+        <li class="how">html 연결</li>
+        <p>-views.py에 페이지 이름 함수 선언</p>
+        <p>-urls.py에 데이터 연결</p>
+        <li class="how">상속하기</li>
+        <p>-extends태그를 통해 불러오기</p>
+        <p>-block, endblock을 통해 상속시키기</p>
+        <p>-settings.py에서 경로 설정</p>
+        <li class="how">static - 정적인 파일 저장 디렉토리</li>
+        <p>-사용할 때 load태그로 연결</p>
+        <p>-link를 이용해 파일 안에서 css경로 지정</p>
+        <p>-settings.py에서 경로 설정</p>
+    </ul>
+</div>
+{% endblock %}

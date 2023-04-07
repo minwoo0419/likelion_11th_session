@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h1>세팅하는법</h1>
+<div class="word">
+    <ul class="setting">
+        <li>pipenv shell - 가상환경 켜기</li>
+        <li>pip install django - 장고 설치</li>
+        <li>django-admin startproject 프로젝트 이름 - 프로젝트 생성</li>
+        <li>settings.py 초기설정하기</li>
+        <li>python manage.py startapp 앱이름 - 앱 생성</li>
+        <li>python manage.py migrate</li>
+        <li>python manage.py makemigrations - migrate 하기</li>
+        <li>python manage.py runserver - 서버 실행</li>
+    </ul>
+</div>
+{% endblock %}

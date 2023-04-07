@@ -1,0 +1,14 @@
+h1, h2 {
+    color : #ffa500;
+    font-size : 80px;
+    font-weight : bold; 
+    padding : 5px 20px 5px 20px;
+}
+.word {
+    border : 2px solid orange;
+    width : 500px;
+    padding : 25px;
+}
+.how, .setting {
+    font-weight : bold;
+}
