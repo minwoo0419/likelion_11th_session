@@ -22,4 +22,7 @@ urlpatterns = [
     path('', views.mainpage, name="mainpage"),
     path('setting/', views.setting, name="setting"),
     path('study/', views.study, name="study"),
+    path('new/', views.new, name="new"),
+    path('create/', views.create, name="create"),
+    path('<int:id>', views.detail, name="detail"),
 ]

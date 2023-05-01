@@ -3,4 +3,19 @@
 {% block content %}
 <h1>WELCOME!</h1>
 <h2>Django 요약정리</h2>
+<br>
+<a href="{%url 'new'%}">글쓰기</a>
+<h1>글목록</h1>
+<div>
+    {% for post in posts %}
+    <div>
+        <h3>{{post.title}}</h3>
+        {{post.writer}}<br>
+        {{post.week}}주차<br>
+        {{post.summary}}
+        <a href="{%url 'detail' post.id%}">...자세히</a>
+        <hr>
+    </div>
+    {%endfor%}
+</div>
 {% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h3>{{post.title}}</h3>
+날짜 : {{post.pub_date}}<br>
+{{post.week}}주차
+작성자 : {{post.writer}}
+<hr>
+내용 : {{post.body}}
+<br>
+느낀점 : {{post.feel}}
+{% endblock %}
