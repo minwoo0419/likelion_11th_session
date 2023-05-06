@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<form action="{%url 'create'%}" method="POST">
+<form action="{%url 'main:create'%}" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <p>제목 : <input type="text" name="title"></p>
     <p>이름 : <input type="text" name="writer"></p>
     <p><input type="number", name="week">주차</p>
-    <p>내용 : <textarea type="text" name="body" cols="50" rows="5"></textarea></p>
+    <p>사진 : <input type="file" name="image"></p>
+    <p>내용 : <textarea type="text" name="body" id="" cols="50" rows="5"></textarea></p>
     <p>느낀점 : <textarea type="text" name="feel" id="" cols="50" rows="5"></textarea></p>
     <button type="submit">제출</button>
 </form>

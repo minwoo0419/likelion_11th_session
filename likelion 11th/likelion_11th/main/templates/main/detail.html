@@ -4,9 +4,17 @@
 <h3>{{post.title}}</h3>
 날짜 : {{post.pub_date}}<br>
 {{post.week}}주차
+
 작성자 : {{post.writer}}
+<hr>
+{%if post.image%}
+    <p><img src="{{post.image.url}}" alt="사진"></p>
+{%endif%}
 <hr>
 내용 : {{post.body}}
 <br>
 느낀점 : {{post.feel}}
+<hr>
+<a href="{%url 'main:edit' post.id%}">수정하기</a>
+<a href="{%url 'main:delete' post.id%}">삭제하기</a>
 {% endblock %}
