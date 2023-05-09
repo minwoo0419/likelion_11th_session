@@ -42,7 +42,8 @@ def update(request, id):
     update_post.pub_date = timezone.now()
     update_post.body = request.POST['body']
     update_post.feel = request.POST['feel']
-    update_post.image = request.FILES.get('image')
+    if request.FILES.get('image') != None:
+        update_post.image = request.FILES.get('image')
     update_post.save()
     return redirect('main:detail', update_post.id)
 
