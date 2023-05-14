@@ -14,7 +14,6 @@ def study(request):
 def create(request):
     new_post = Post()
     new_post.title = request.POST['title']
-    new_post.writer = request.POST['writer']
     new_post.week = request.POST['week']
     new_post.pub_date = timezone.now()
     new_post.body = request.POST['body']
