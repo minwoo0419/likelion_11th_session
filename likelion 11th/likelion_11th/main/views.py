@@ -19,6 +19,7 @@ def create(request):
     new_post.pub_date = timezone.now()
     new_post.body = request.POST['body']
     new_post.feel = request.POST['feel']
+    new_post.author = request.user
     new_post.image = request.FILES.get('image')
     new_post.save()
     return redirect('main:detail', new_post.id)
