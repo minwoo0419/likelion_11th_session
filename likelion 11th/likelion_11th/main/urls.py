@@ -13,4 +13,8 @@ urlpatterns = [
     path('edit/<int:id>', edit, name="edit"),
     path('update/<int:id>', update, name="update"),
     path('delete/<int:id>', delete, name="delete"),
+    path('tag/', tag_list, name="tag_list"),
+    path('tag/<int:tag_id>', tag_posts, name="tag_posts"),
+    path('search', search, name="search"),
+    path('delete_com/<int:id>', delete_com, name="delete_com"),
 ]

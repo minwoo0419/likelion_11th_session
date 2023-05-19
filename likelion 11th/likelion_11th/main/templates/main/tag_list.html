@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="tag_container">
+    <form action="{%url 'main:search'%}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="text" name="searched">
+        <button type="submit">검색</button>
+    </form>
+    <h2>해시태그 목록</h2>
+    <hr>
+    {% for t in tags %}
+    {%if t.delete_if_unused == 0%}
+    <div class="tag">
+        <h2 class="title"><a href="{% url 'main:tag_posts' t.id %}">#{{t.name}}</a></h2>
+    </div>
+    <hr>
+    {%endif%}
+    {% endfor %}
+</div>
+
+{% endblock %}
