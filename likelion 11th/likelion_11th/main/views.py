@@ -17,12 +17,12 @@ def create(request):
         new_post.title = request.POST['title']
         new_post.week = request.POST['week']
         new_post.pub_date = timezone.now()
-        words = request.POST['body'].split('#')
-        new_post.body = words[0]
+        new_post.body = request.POST['body']
         new_post.feel = request.POST['feel']
         new_post.author = request.user
         new_post.image = request.FILES.get('image')
         new_post.save()
+        words = new_post.body.split('#')
         tag_list = []
         tag_count = 0;
         for w in words:
@@ -54,10 +54,10 @@ def detail(request, id):
         new_comment = Comment()
         new_comment.post = post
         new_comment.author = request.user
-        words = request.POST['content'].split('#')
-        new_comment.content = words[0]
+        new_comment.content = request.POST['content']
         new_comment.pub_date = timezone.now()
         new_comment.save()
+        words = new_comment.content.split('#')
         tag_list = []
         tag_count = 0;
         for w in words:
@@ -87,13 +87,13 @@ def update(request, id):
             update_post.author = request.user
             update_post.week = request.POST['week']
             update_post.pub_date = timezone.now()
-            words = request.POST['body'].split('#')
-            update_post.body = words[0]
+            update_post.body = request.POST['body']
             update_post.feel = request.POST['feel']
             if request.FILES.get('image') != None:
                 update_post.image = request.FILES.get('image')
             update_post.save()
             update_post.tags.clear()
+            words = update_post.body.split('#')
             tag_list = []
             tag_count = 0;
             for w in words:
