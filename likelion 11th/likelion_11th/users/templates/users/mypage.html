@@ -7,6 +7,22 @@
 <h4>나이 : {{user.profile.age}}</h4>
 <h4>이메일 : {{user.profile.email}}</h4>
 <hr>
+<p>팔로워<br>{{user.profile.followers.count}}명</p>
+{%for follower in user.profile.followers.all%}
+<a href="{%url 'users:mypage' follower.user.id%}">{{follower.user.username}}</a>
+{%endfor%}
+<p>팔로잉<br>{{user.profile.followings.count}}명</p>
+{%for follower in user.profile.followings.all%}
+<a href="{%url 'users:mypage' following.user.id%}">{{following.user.username}}</a>
+{%endfor%}
+
+{%if request.user != user%}
+{%if request.user.profile in user.profile.followers.all%}
+<a href="{%url 'users:follow' user.id%}"><button type="button" class="btn btn-outline-info">언팔로우</button></a>
+{%else%}
+<a href="{%url 'users:follow' user.id%}"><button type="button" class="btn btn-info">팔로우</button></a>
+{%endif%}
+{%endif%}
 <h2>글목록</h2>
 <div>
     {% for post in posts %}

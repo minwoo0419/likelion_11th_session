@@ -7,4 +7,5 @@ class Profile(models.Model):
     department = models.TextField(null=True, max_length=30)
     age = models.IntegerField(default=0)
     email = models.EmailField()
-# Create your models here.
+    followings = models.ManyToManyField("self", related_name="followers", symmetrical=False, blank=True)
+

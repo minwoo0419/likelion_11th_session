@@ -5,7 +5,7 @@
 날짜 : {{post.pub_date}}<br>
 {{post.week}}주차
 
-작성자 : {{post.author.username}}
+<a href="{%url 'users:mypage' post.author.id%}">작성자 : {{post.author.username}}</a>
 <hr>
 {%if post.image%}
     <p><img src="{{post.image.url}}" width = '500' height = '500' alt="사진"></p>
@@ -20,6 +20,15 @@
     <a href = "{%url 'main:tag_posts' tag.pk%}"> {{tag.name}} </a>
     {%endfor%}
 </p>
+<a href="{%url 'main:likes' post.id%}">
+    {%if user in post.like.all%}
+    취소
+    {%else%}
+    좋아요
+    {%endif%}
+</a>
+{{post.like_count}}개
+<hr>
 {%if post.author == user%}
     <a href="{%url 'main:edit' post.id%}">수정하기</a>
     <a href="{%url 'main:delete' post.id%}">삭제하기</a>

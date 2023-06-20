@@ -17,4 +17,5 @@ urlpatterns = [
     path('tag/<int:tag_id>', tag_posts, name="tag_posts"),
     path('search', search, name="search"),
     path('delete_com/<int:id>', delete_com, name="delete_com"),
+    path('likes/<int:post_id>', likes, name="likes"),
 ]

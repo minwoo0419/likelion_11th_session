@@ -144,3 +144,14 @@ def search(request):
         return render(request, 'main/search.html', {'tag': tag, 'posts':posts, 'comments':comments})
     else:
         return render(request, 'main/tag_list.html')
+    
+def likes(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    if request.user in post.like.all():
+        post.like.remove(request.user)
+        post.like_count -= 1
+    else:
+        post.like.add(request.user)
+        post.like_cout += 1
+    post.save()
+    return redirect('main:detail', post.id)
