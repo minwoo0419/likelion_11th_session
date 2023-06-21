@@ -152,6 +152,6 @@ def likes(request, post_id):
         post.like_count -= 1
     else:
         post.like.add(request.user)
-        post.like_cout += 1
+        post.like_count += 1
     post.save()
     return redirect('main:detail', post.id)
